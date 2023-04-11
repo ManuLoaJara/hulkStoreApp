@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hulkStoreApp"
+    }
+  },
+  "defaultProject": "hulkStoreApp",
+  "cli": {
+    "analytics": false
+  }
 }
