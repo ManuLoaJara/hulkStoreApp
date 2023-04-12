@@ -1,0 +1,8 @@
+body  {
+  background-image: url("/assets/images/wallpaperStore.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: calc(100vh - 56px);
+  padding: 0;
+}

@@ -1,6 +1,11 @@
-<span>{{ title }} app is running!</span>
-<nav>
-  <button routerLink="/">Home</button>
-  <button routerLink="/productos">Productos</button>
+<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand mx-2" routerLink="">{{ title }}</a>
+  <div id="menu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/productos">Productos</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 <router-outlet></router-outlet>

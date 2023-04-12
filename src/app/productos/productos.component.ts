@@ -8,6 +8,8 @@ import { ProductosService } from '../services/productos.service';
 })
 export class ProductosComponent implements OnInit {
 
+  productos: Object[];
+
   constructor(private productosService: ProductosService){
     console.log('ProductosComponent Creado');
   }
@@ -15,7 +17,7 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     console.log('ProductosComponent inicializado');
     this.productosService.getProducts()
-      .subscribe(arg => console.log(arg));
+      .subscribe(arg => this.productos = arg);
   }
 
 }
