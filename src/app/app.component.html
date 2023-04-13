@@ -1,11 +1,54 @@
-<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand mx-2" routerLink="">{{ title }}</a>
-  <div id="menu">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/productos">Productos</a>
-      </li>
-    </ul>
+<div>
+  <div>
+    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand mx-2" routerLink="">{{ title }}</a>
+      <div id="menu">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/productos">Productos</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </div>
-</nav>
-<router-outlet></router-outlet>
+  <div>
+    <img class="cartBtnOpen" src="assets/icons/cart.svg" (click)="toggleDisabledCart()">
+    <div class="cart" *ngIf="this.disabledCart">
+      <div class="emptyDiv" (click)="toggleDisabledCart()"></div>
+      <div class="cartDiv">
+        <header class="cartHeader">
+          <button (click)="toggleDisabledCart()" type="button" id="cartClose" class="cartBtn" title="Cerrar carrito">X</button>
+          <span class="cartTitle">Carrito</span>
+        </header>
+        <section>
+          <div class="container">
+            <h5 class="card-title" *ngIf="!this.productsCart || this.productsCart.length == 0">No hay productos en el carrito</h5>
+            <div class="row itemCard m-2 p-1" *ngFor="let prod of this.productsCart">
+              <div class="col-4 p-0">
+                <img class="card-img" src="assets/images/noPhoto.jpg">
+              </div>
+              <div class="col-8 text-center p-1">
+                <h5 class="card-title">{{prod.referencia}}</h5>
+                <p class="card-text">{{prod.precio | currency: 'USD' : '$' : '1.0-0'}}</p>
+                <div>
+                  <button class="inputNumber-remove" (click)="remove(prod)">-</button>
+                  <input type="number" disabled class="inputNumber" [max]="prod.stock" [value]="prod.cantidad">
+                  <button class="inputNumber-add" (click)="add(prod)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="cartFooter">
+          <span class="cartTitle">Total: {{totalCart | currency: 'USD' : '$' : '1.0-0'}}</span>
+          <div class="col-md-12 text-center">
+            <button class="btn btn-dark" (click)="compra()">Compar</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

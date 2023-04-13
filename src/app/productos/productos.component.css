@@ -1,0 +1,7 @@
+.component-container {
+  width: 100%;
+  padding-right: 10%;
+  padding-left: 10%;
+  overflow-y: auto;
+  height: calc(100vh - 56px);
+}

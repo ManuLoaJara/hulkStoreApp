@@ -6,11 +6,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ProductosService {
 
-  constructor(private http: HttpClient) {
-    console.log('Servicio Http');
-   }
+  constructor(private http: HttpClient) {}
 
   getProducts(): any {
     return this.http.get('http://localhost:8080/producto/getList');
+  }
+
+  compra(values): any {
+    return this.http.post('http://localhost:8080/producto/compra', values);
   }
 }
