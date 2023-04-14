@@ -56,7 +56,6 @@ export class AppComponent implements OnInit{
   }
 
   compra(){
-    console.log(this.productsCart);
     this.productosService.compra(this.productsCart).subscribe(arg => this.validarCompra(arg));
   }
 

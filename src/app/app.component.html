@@ -7,6 +7,9 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/productos">Productos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/ingreso-poductos">Surtir</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -25,7 +28,7 @@
             <h5 class="card-title" *ngIf="!this.productsCart || this.productsCart.length == 0">No hay productos en el carrito</h5>
             <div class="row itemCard m-2 p-1" *ngFor="let prod of this.productsCart">
               <div class="col-4 p-0">
-                <img class="card-img" src="assets/images/noPhoto.jpg">
+                <img class="card-img" [src]="prod.imagenBase64 ? prod.imagenBase64 : 'assets/images/noPhoto.jpg'">
               </div>
               <div class="col-8 text-center p-1">
                 <h5 class="card-title">{{prod.referencia}}</h5>

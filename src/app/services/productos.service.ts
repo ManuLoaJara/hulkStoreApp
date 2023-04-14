@@ -15,4 +15,12 @@ export class ProductosService {
   compra(values): any {
     return this.http.post('http://localhost:8080/producto/compra', values);
   }
+
+  getVariablesByCategory(values){
+    return this.http.post('http://localhost:8080/variables/getByCategory', values);
+  }
+
+  addProduct(values): any {
+    return this.http.post('http://localhost:8080/producto/addProduct', values);
+  }
 }

@@ -6,12 +6,7 @@
   height: calc(100vh - 56px);
 }
 
-.card-img-title{
-  background-color: black;
-  opacity: 70%;
-  color: white;
-}
-
-.card-img-overlay {
-  height: fit-content;
+.card-img{
+  border: #ced4da solid 1px;
+  border-radius: 5px;
 }
